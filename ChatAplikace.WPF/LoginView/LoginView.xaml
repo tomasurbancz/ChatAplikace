@@ -12,6 +12,7 @@
                 <TextBlock Name="LoginText" Text="Login" FontSize="24" Margin="0,0,0,20"  HorizontalAlignment="Center"/>
                 <TextBox Name="Username" Text="{Binding Username}" local:TextBoxHelper.Placeholder="Username" Margin="0, 0, 0, 20" Height="30"/>
                 <TextBox Name="Password" Text="{Binding Password}" local:TextBoxHelper.Placeholder="Password" Margin="0, 0, 0, 20" Height="30"/>
+                <TextBlock Name="ErrorText" Text="Account not found" TextAlignment="Right" Margin="0,0,0,20" Foreground="Red" Visibility="{Binding ErrorVisibility}"/>
                 <Button Name="LoginButton" Height="30" Content="Login" Command="{Binding LoginCommand}"/>
             </StackPanel>
         </Grid>

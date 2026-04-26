@@ -25,7 +25,7 @@ public class UserService : IUserService
 
         var user = await _databaseContext.Users.FirstOrDefaultAsync(u => u.Username == username);
         if (user == null) return null;
-        if (user.PasswordHash.Equals(BCrypt.Net.BCrypt.HashPassword(password))) return null;
+        if (!BCrypt.Net.BCrypt.Verify(password, user.PasswordHash)) return null;
         return user;
     }
 

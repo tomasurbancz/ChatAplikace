@@ -76,3 +76,5 @@ C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-win
 C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\App.baml
 C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\LoginView\LoginView.baml
 C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\MainWindow\MainWindow.baml
+C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\ChatView\ChatView.g.cs
+C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\ChatView\ChatView.baml

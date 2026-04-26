@@ -29,8 +29,4 @@
       </Page>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="MainView\" />
-    </ItemGroup>
-
 </Project>
