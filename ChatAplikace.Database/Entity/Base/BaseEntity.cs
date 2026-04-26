@@ -1,0 +1,10 @@
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ChatAplikace.Database.Entity.Base;
+
+public class BaseEntity 
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+    public DateTime CreatedAt { get; set; } = DateTime.Now;
+    public DateTime UpdatedAt { get; set; } = DateTime.Now;
+}
