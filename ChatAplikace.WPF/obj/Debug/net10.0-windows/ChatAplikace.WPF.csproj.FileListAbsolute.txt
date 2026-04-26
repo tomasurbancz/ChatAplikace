@@ -18,11 +18,9 @@ C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\bin\Debug\net10.0-win
 C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\bin\Debug\net10.0-windows\Microsoft.Extensions.Options.dll
 C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\bin\Debug\net10.0-windows\Microsoft.Extensions.Primitives.dll
 C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\ChatAplikace.WPF.csproj.AssemblyReference.cache
-C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\MainWindow.g.cs
 C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\App.g.cs
 C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\ChatAplikace.WPF_MarkupCompile.cache
 C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\ChatAplikace.WPF_MarkupCompile.lref
-C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\MainWindow.baml
 C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\ChatAplikace.WPF.g.resources
 C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\ChatAplikace.WPF.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\ChatAplikace.WPF.AssemblyInfoInputs.cache
@@ -71,3 +69,10 @@ C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\bin\Debug\net10.0-win
 C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\bin\Debug\net10.0-windows\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\bin\Debug\net10.0-windows\ChatAplikace.Database.dll
 C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\bin\Debug\net10.0-windows\ChatAplikace.Database.pdb
+C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\ChatAplikace.WPF.sourcelink.json
+C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\LoginView\LoginView.g.cs
+C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\MainWindow\MainWindow.g.cs
+C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\App.baml
+C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\LoginView\LoginView.baml
+C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.WPF\obj\Debug\net10.0-windows\MainWindow\MainWindow.baml

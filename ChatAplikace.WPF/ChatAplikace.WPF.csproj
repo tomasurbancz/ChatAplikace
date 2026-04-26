@@ -16,4 +16,21 @@
       <ProjectReference Include="..\ChatAplikace.Database\ChatAplikace.Database.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Page Update="MainWindow\MainWindow.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="LoginView\LoginView.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="MainView\" />
+    </ItemGroup>
+
 </Project>

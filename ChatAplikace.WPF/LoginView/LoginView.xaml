@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="ChatAplikace.WPF.LoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ChatAplikace.WPF"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid Name="LoginPanel">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+                <TextBlock Name="LoginText" Text="Login" FontSize="24" Margin="0,0,0,20"  HorizontalAlignment="Center"/>
+                <TextBox Name="Username" Text="{Binding Username}" local:TextBoxHelper.Placeholder="Username" Margin="0, 0, 0, 20" Height="30"/>
+                <TextBox Name="Password" Text="{Binding Password}" local:TextBoxHelper.Placeholder="Password" Margin="0, 0, 0, 20" Height="30"/>
+                <Button Name="LoginButton" Height="30" Content="Login" Command="{Binding LoginCommand}"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

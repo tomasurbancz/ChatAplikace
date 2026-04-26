@@ -66,3 +66,4 @@ C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.Backend\obj\Debug\net10.0
 C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.Backend\obj\Debug\net10.0\ChatAplikace.Backend.pdb
 C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.Backend\obj\Debug\net10.0\ChatAplikace.Backend.genruntimeconfig.cache
 C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.Backend\obj\Debug\net10.0\ref\ChatAplikace.Backend.dll
+C:\Users\User1\RiderProjects\ChatAplikace\ChatAplikace.Backend\obj\Debug\net10.0\ChatAplikace.Backend.sourcelink.json
