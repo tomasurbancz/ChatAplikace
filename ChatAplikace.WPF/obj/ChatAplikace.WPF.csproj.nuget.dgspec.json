@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User1\\RiderProjects\\ChatAplikace\\ChatAplikace.WPF\\ChatAplikace.WPF.csproj": {}
+    "C:\\Users\\tomas.urban\\Desktop\\ChatAplikace\\ChatAplikace.WPF\\ChatAplikace.WPF.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User1\\RiderProjects\\ChatAplikace\\ChatAplikace.Database\\ChatAplikace.Database.csproj": {
+    "C:\\Users\\tomas.urban\\Desktop\\ChatAplikace\\ChatAplikace.Database\\ChatAplikace.Database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User1\\RiderProjects\\ChatAplikace\\ChatAplikace.Database\\ChatAplikace.Database.csproj",
+        "projectUniqueName": "C:\\Users\\tomas.urban\\Desktop\\ChatAplikace\\ChatAplikace.Database\\ChatAplikace.Database.csproj",
         "projectName": "ChatAplikace.Database",
-        "projectPath": "C:\\Users\\User1\\RiderProjects\\ChatAplikace\\ChatAplikace.Database\\ChatAplikace.Database.csproj",
-        "packagesPath": "C:\\Users\\User1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User1\\RiderProjects\\ChatAplikace\\ChatAplikace.Database\\obj\\",
+        "projectPath": "C:\\Users\\tomas.urban\\Desktop\\ChatAplikace\\ChatAplikace.Database\\ChatAplikace.Database.csproj",
+        "packagesPath": "C:\\Users\\tomas.urban\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tomas.urban\\Desktop\\ChatAplikace\\ChatAplikace.Database\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tomas.urban\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -77,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\User1\\.dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Users\\tomas.urban\\.dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -355,17 +355,17 @@
         }
       }
     },
-    "C:\\Users\\User1\\RiderProjects\\ChatAplikace\\ChatAplikace.WPF\\ChatAplikace.WPF.csproj": {
+    "C:\\Users\\tomas.urban\\Desktop\\ChatAplikace\\ChatAplikace.WPF\\ChatAplikace.WPF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User1\\RiderProjects\\ChatAplikace\\ChatAplikace.WPF\\ChatAplikace.WPF.csproj",
+        "projectUniqueName": "C:\\Users\\tomas.urban\\Desktop\\ChatAplikace\\ChatAplikace.WPF\\ChatAplikace.WPF.csproj",
         "projectName": "ChatAplikace.WPF",
-        "projectPath": "C:\\Users\\User1\\RiderProjects\\ChatAplikace\\ChatAplikace.WPF\\ChatAplikace.WPF.csproj",
-        "packagesPath": "C:\\Users\\User1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User1\\RiderProjects\\ChatAplikace\\ChatAplikace.WPF\\obj\\",
+        "projectPath": "C:\\Users\\tomas.urban\\Desktop\\ChatAplikace\\ChatAplikace.WPF\\ChatAplikace.WPF.csproj",
+        "packagesPath": "C:\\Users\\tomas.urban\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tomas.urban\\Desktop\\ChatAplikace\\ChatAplikace.WPF\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tomas.urban\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -379,8 +379,8 @@
           "net10.0-windows7.0": {
             "targetAlias": "net10.0-windows",
             "projectReferences": {
-              "C:\\Users\\User1\\RiderProjects\\ChatAplikace\\ChatAplikace.Database\\ChatAplikace.Database.csproj": {
-                "projectPath": "C:\\Users\\User1\\RiderProjects\\ChatAplikace\\ChatAplikace.Database\\ChatAplikace.Database.csproj"
+              "C:\\Users\\tomas.urban\\Desktop\\ChatAplikace\\ChatAplikace.Database\\ChatAplikace.Database.csproj": {
+                "projectPath": "C:\\Users\\tomas.urban\\Desktop\\ChatAplikace\\ChatAplikace.Database\\ChatAplikace.Database.csproj"
               }
             }
           }
@@ -425,7 +425,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\User1\\.dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Users\\tomas.urban\\.dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

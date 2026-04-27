@@ -12,7 +12,6 @@ public class LoginViewModel : BaseViewModel
     public string Password { get; set; }
     public ICommand LoginCommand { get; }
     private bool _isBusy;
-    private Timer _errorHide;
     private string _errorVisibility;
     public string ErrorVisibility
     {
@@ -31,10 +30,6 @@ public class LoginViewModel : BaseViewModel
         _chatHubService = chatHubService;
         LoginCommand = new RelayCommand(Login, () => !_isBusy);
         ErrorVisibility = "Hidden";
-        _errorHide = new Timer((_) =>
-        {
-            ErrorVisibility = "Visible";
-        });
     }
 
     public async Task Login()

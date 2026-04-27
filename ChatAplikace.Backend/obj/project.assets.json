@@ -666,19 +666,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User1\\.nuget\\packages\\": {}
+    "C:\\Users\\tomas.urban\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User1\\RiderProjects\\ChatAplikace\\ChatAplikace.Backend\\ChatAplikace.Backend.csproj",
+      "projectUniqueName": "C:\\Users\\tomas.urban\\Desktop\\ChatAplikace\\ChatAplikace.Backend\\ChatAplikace.Backend.csproj",
       "projectName": "ChatAplikace.Backend",
-      "projectPath": "C:\\Users\\User1\\RiderProjects\\ChatAplikace\\ChatAplikace.Backend\\ChatAplikace.Backend.csproj",
-      "packagesPath": "C:\\Users\\User1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User1\\RiderProjects\\ChatAplikace\\ChatAplikace.Backend\\obj\\",
+      "projectPath": "C:\\Users\\tomas.urban\\Desktop\\ChatAplikace\\ChatAplikace.Backend\\ChatAplikace.Backend.csproj",
+      "packagesPath": "C:\\Users\\tomas.urban\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tomas.urban\\Desktop\\ChatAplikace\\ChatAplikace.Backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tomas.urban\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -692,8 +692,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\User1\\RiderProjects\\ChatAplikace\\ChatAplikace.Database\\ChatAplikace.Database.csproj": {
-              "projectPath": "C:\\Users\\User1\\RiderProjects\\ChatAplikace\\ChatAplikace.Database\\ChatAplikace.Database.csproj"
+            "C:\\Users\\tomas.urban\\Desktop\\ChatAplikace\\ChatAplikace.Database\\ChatAplikace.Database.csproj": {
+              "projectPath": "C:\\Users\\tomas.urban\\Desktop\\ChatAplikace\\ChatAplikace.Database\\ChatAplikace.Database.csproj"
             }
           }
         }
@@ -746,7 +746,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\User1\\.dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Users\\tomas.urban\\.dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
@@ -1169,7 +1169,7 @@
       "code": "NU1510",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "PackageReference Microsoft.AspNetCore.SignalR.Common will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.",
+      "message": "PackageReference Microsoft.AspNetCore.SignalR.Common se nevyřadí. Zvažte odebrání tohoto balíčku ze závislostí, protože je pravděpodobně nepotřebný.",
       "libraryId": "Microsoft.AspNetCore.SignalR.Common",
       "targetGraphs": [
         "net10.0"
