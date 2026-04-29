@@ -52,4 +52,19 @@ public class ChatHubService : IChatHubService
     {
         await Connection.InvokeAsync("SendMessage", message);
     }
+
+    public async Task<List<MessageModel>> GetMessages(Guid id)
+    {
+        return await Connection.InvokeAsync<List<MessageModel>>("GetAllMessages", id);
+    }
+
+    public async Task<string> GetChatRoomName(Guid id)
+    {
+        return await Connection.InvokeAsync<string>("GetChatRoomName", id);
+    }
+
+    public async Task<List<ChatRoomModel>> GetChatRooms()
+    {
+        return await Connection.InvokeAsync<List<ChatRoomModel>>("GetChatRooms");
+    }
 }

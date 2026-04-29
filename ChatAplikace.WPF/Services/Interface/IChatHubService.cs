@@ -11,4 +11,7 @@ public interface IChatHubService
     Task ListenToMessages(Action<MessageModel> callback);
     Task<bool> Login(string username, string password);
     Task SendMessage(string message);
+    Task<List<MessageModel>> GetMessages(Guid id);
+    Task<string> GetChatRoomName(Guid id);
+    Task<List<ChatRoomModel>> GetChatRooms();
 }

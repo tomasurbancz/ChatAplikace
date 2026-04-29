@@ -9,5 +9,6 @@ public interface IRoomService
     Task JoinRoom(Guid userId, Guid roomId);
     Task LeaveRoom(Guid userId, Guid roomId);
     Task<MessageModel?> SendMessage(Guid userId, Guid roomId, string message);
-    Task<List<MessageEntity>> GetAllMessages(Guid roomId);
+    Task<List<MessageModel>> GetAllMessages(Guid roomId);
+    Task<string> GetName(Guid roomId);
 }

@@ -76,8 +76,22 @@ public class RoomService : IRoomService
         return messageModel;
     }
 
-    public async Task<List<MessageEntity>> GetAllMessages(Guid roomId)
+    public async Task<List<MessageModel>> GetAllMessages(Guid roomId)
     {
-        return await _databaseContext.Messages.Where(m => m.ChatRoomId == roomId).ToListAsync();
+        List<MessageEntity> entities = await _databaseContext.Messages.Where(m => m.ChatRoomId == roomId).ToListAsync();
+        List<MessageModel> models = new List<MessageModel>();
+        entities.ForEach(entity =>
+        {
+            MessageModel model = new MessageModel() {CreatedAt = entity.CreatedAt, UpdatedAt = entity.UpdatedAt, ChatRoomId = entity.ChatRoomId, Id = entity.Id, Message = entity.Message, UserId = entity.UserId};
+            models.Add(model);
+        });
+        return models;
+    }
+
+    public async Task<string> GetName(Guid roomId)
+    {
+        var chatRoom = await _databaseContext.ChatRooms.FindAsync(roomId);
+        if (chatRoom == null) return "";
+        return chatRoom.Name;
     }
 }

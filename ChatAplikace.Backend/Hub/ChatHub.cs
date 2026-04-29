@@ -2,6 +2,7 @@
 using ChatAplikace.Backend.Manager;
 using ChatAplikace.Backend.Services;
 using ChatAplikace.Database.Entity;
+using ChatAplikace.Database.Model;
 using Microsoft.AspNetCore.SignalR;
 
 namespace ChatAplikace.Backend.Hub;
@@ -73,9 +74,31 @@ public class ChatHub : Microsoft.AspNetCore.SignalR.Hub
        
     }
 
+    public async Task<List<ChatRoomModel>> GetChatRooms()
+    {
+        if (_connections.TryGetUser(Context.ConnectionId, out var userId))
+        {
+            var rooms = await _userService.GetRooms(userId);
+            List<ChatRoomModel> models = new List<ChatRoomModel>();
+            rooms.ForEach(room =>
+            {
+                ChatRoomModel model = new ChatRoomModel() {CreatedAt = room.CreatedAt, Messages = room.Messages, UpdatedAt = room.UpdatedAt, Id = room.Id, Name = room.Name, Users = room.Users };
+                models.Add(model);
+            });
+            return models;   
+        }
+
+        return new();
+    }
+
     public async Task AddToRoom(Guid roomId)
     {
         
+    }
+
+    public async Task<List<MessageModel>> GetAllMessages(Guid roomId)
+    {
+        return await _roomService.GetAllMessages(roomId);
     }
      
     public async Task JoinRoom(Guid roomId)
@@ -86,6 +109,11 @@ public class ChatHub : Microsoft.AspNetCore.SignalR.Hub
             await Groups.AddToGroupAsync(Context.ConnectionId, roomId.ToString());
         }
         //await Clients.Group(roomId).SendAsync("SystemMessage", $"{Context.ConnectionId} joined {roomId}");
+    }
+
+    public async Task<string> GetChatRoomName(Guid id)
+    {
+        return await _roomService.GetName(id);
     }
     
     public override async Task OnConnectedAsync()
