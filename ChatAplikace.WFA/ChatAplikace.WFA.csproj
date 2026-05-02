@@ -18,6 +18,18 @@
       <Compile Update="Controls\Login\LoginControl.cs">
         <SubType>UserControl</SubType>
       </Compile>
+      <Compile Update="Controls\Register\RegisterControl.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ChatAplikace.Database\ChatAplikace.Database.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="10.0.7" />
+      <PackageReference Include="Microsoft.AspNetCore.SignalR.Client.Core" Version="10.0.7" />
     </ItemGroup>
 
 </Project>

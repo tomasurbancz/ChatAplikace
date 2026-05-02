@@ -1,4 +1,5 @@
 ﻿using ChatAplikace.WFA.Controls.Login;
+using ChatAplikace.WFA.Services;
 
 namespace ChatAplikace.WFA.Forms;
 
@@ -7,8 +8,16 @@ public partial class MainForm : Form
     public MainForm()
     {
         InitializeComponent();
-        LoginControl loginControl = new LoginControl(this);
-        loginControl.Dock = DockStyle.Fill;
-        Controls.Add(loginControl);
+        
+    }
+
+    private async void MainForm_Load(object sender, EventArgs e)
+    {
+        NavigationService navigationService = new NavigationService(this);
+        ChatHubService chatHubService = new ChatHubService();
+        await chatHubService.StartAsync();
+            
+            
+        navigationService.SetControl(new LoginControl(navigationService, chatHubService));
     }
 }

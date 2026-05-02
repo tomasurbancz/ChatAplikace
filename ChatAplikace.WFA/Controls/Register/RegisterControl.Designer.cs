@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace ChatAplikace.WFA.Controls.Login;
+namespace ChatAplikace.WFA.Controls.Register;
 
-partial class LoginControl
+partial class RegisterControl
 {
     /// <summary> 
     /// Required designer variable.
@@ -32,14 +32,14 @@ partial class LoginControl
     private void InitializeComponent()
     {
         tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-        loginPanel = new System.Windows.Forms.Panel();
+        registerPanel = new System.Windows.Forms.Panel();
         passwordBox = new System.Windows.Forms.TextBox();
         usernameBox = new System.Windows.Forms.TextBox();
         label1 = new System.Windows.Forms.Label();
-        loginButton = new System.Windows.Forms.Button();
-        loginLabel = new System.Windows.Forms.Label();
+        registerButton = new System.Windows.Forms.Button();
+        registerLabel = new System.Windows.Forms.Label();
         tableLayoutPanel1.SuspendLayout();
-        loginPanel.SuspendLayout();
+        registerPanel.SuspendLayout();
         SuspendLayout();
         // 
         // tableLayoutPanel1
@@ -51,7 +51,7 @@ partial class LoginControl
         tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
         tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
         tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.34F));
-        tableLayoutPanel1.Controls.Add(loginPanel, 1, 1);
+        tableLayoutPanel1.Controls.Add(registerPanel, 1, 1);
         tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
         tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
         tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -65,18 +65,18 @@ partial class LoginControl
         tableLayoutPanel1.Size = new System.Drawing.Size(640, 360);
         tableLayoutPanel1.TabIndex = 0;
         // 
-        // loginPanel
+        // registerPanel
         // 
-        loginPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-        loginPanel.Controls.Add(passwordBox);
-        loginPanel.Controls.Add(usernameBox);
-        loginPanel.Controls.Add(label1);
-        loginPanel.Controls.Add(loginButton);
-        loginPanel.Controls.Add(loginLabel);
-        loginPanel.Location = new System.Drawing.Point(216, 82);
-        loginPanel.Name = "loginPanel";
-        loginPanel.Size = new System.Drawing.Size(207, 184);
-        loginPanel.TabIndex = 0;
+        registerPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+        registerPanel.Controls.Add(passwordBox);
+        registerPanel.Controls.Add(usernameBox);
+        registerPanel.Controls.Add(label1);
+        registerPanel.Controls.Add(registerButton);
+        registerPanel.Controls.Add(registerLabel);
+        registerPanel.Location = new System.Drawing.Point(216, 82);
+        registerPanel.Name = "registerPanel";
+        registerPanel.Size = new System.Drawing.Size(207, 184);
+        registerPanel.TabIndex = 0;
         // 
         // passwordBox
         // 
@@ -100,31 +100,31 @@ partial class LoginControl
         label1.Name = "label1";
         label1.Size = new System.Drawing.Size(100, 23);
         label1.TabIndex = 2;
-        label1.Text = "Register";
+        label1.Text = "Login";
         label1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
         label1.Click += label1_Click;
         // 
-        // loginButton
+        // registerButton
         // 
-        loginButton.Location = new System.Drawing.Point(3, 151);
-        loginButton.Name = "loginButton";
-        loginButton.Size = new System.Drawing.Size(201, 30);
-        loginButton.TabIndex = 1;
-        loginButton.Text = "Login";
-        loginButton.UseVisualStyleBackColor = true;
-        loginButton.Click += loginButton_Click;
+        registerButton.Location = new System.Drawing.Point(3, 151);
+        registerButton.Name = "registerButton";
+        registerButton.Size = new System.Drawing.Size(201, 30);
+        registerButton.TabIndex = 1;
+        registerButton.Text = "Register";
+        registerButton.UseVisualStyleBackColor = true;
+        registerButton.Click += registerButton_Click;
         // 
-        // loginLabel
+        // registerLabel
         // 
-        loginLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)238));
-        loginLabel.Location = new System.Drawing.Point(0, 0);
-        loginLabel.Name = "loginLabel";
-        loginLabel.Size = new System.Drawing.Size(207, 31);
-        loginLabel.TabIndex = 0;
-        loginLabel.Text = "Login";
-        loginLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+        registerLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)238));
+        registerLabel.Location = new System.Drawing.Point(0, 0);
+        registerLabel.Name = "registerLabel";
+        registerLabel.Size = new System.Drawing.Size(207, 31);
+        registerLabel.TabIndex = 0;
+        registerLabel.Text = "Register";
+        registerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         // 
-        // LoginControl
+        // RegisterControl
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -133,20 +133,20 @@ partial class LoginControl
         Location = new System.Drawing.Point(15, 15);
         Size = new System.Drawing.Size(640, 360);
         tableLayoutPanel1.ResumeLayout(false);
-        loginPanel.ResumeLayout(false);
-        loginPanel.PerformLayout();
+        registerPanel.ResumeLayout(false);
+        registerPanel.PerformLayout();
         ResumeLayout(false);
     }
 
     private System.Windows.Forms.TextBox usernameBox;
     private System.Windows.Forms.TextBox passwordBox;
 
-    private System.Windows.Forms.Button loginButton;
+    private System.Windows.Forms.Button registerButton;
     private System.Windows.Forms.Label label1;
 
-    private System.Windows.Forms.Label loginLabel;
+    private System.Windows.Forms.Label registerLabel;
 
-    private System.Windows.Forms.Panel loginPanel;
+    private System.Windows.Forms.Panel registerPanel;
 
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 
