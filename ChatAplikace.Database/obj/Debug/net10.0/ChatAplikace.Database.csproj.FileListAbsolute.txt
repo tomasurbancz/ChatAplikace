@@ -28,3 +28,18 @@ C:\Users\tomas.urban\Desktop\ChatAplikace\ChatAplikace.Database\obj\Debug\net10.
 C:\Users\tomas.urban\Desktop\ChatAplikace\ChatAplikace.Database\obj\Debug\net10.0\ChatAplikace.Database.pdb
 C:\Users\tomas.urban\Desktop\ChatAplikace\ChatAplikace.Database\obj\Debug\net10.0\ChatAplikace.Database.genruntimeconfig.cache
 C:\Users\tomas.urban\Desktop\ChatAplikace\ChatAplikace.Database\obj\Debug\net10.0\ref\ChatAplikace.Database.dll
+C:\Users\User1\OneDrive\Plocha\projekt chat\ChatAplikace\ChatAplikace.Database\bin\Debug\net10.0\ChatAplikace.Database.deps.json
+C:\Users\User1\OneDrive\Plocha\projekt chat\ChatAplikace\ChatAplikace.Database\bin\Debug\net10.0\ChatAplikace.Database.runtimeconfig.json
+C:\Users\User1\OneDrive\Plocha\projekt chat\ChatAplikace\ChatAplikace.Database\bin\Debug\net10.0\ChatAplikace.Database.dll
+C:\Users\User1\OneDrive\Plocha\projekt chat\ChatAplikace\ChatAplikace.Database\bin\Debug\net10.0\ChatAplikace.Database.pdb
+C:\Users\User1\OneDrive\Plocha\projekt chat\ChatAplikace\ChatAplikace.Database\obj\Debug\net10.0\ChatAplikace.Database.csproj.AssemblyReference.cache
+C:\Users\User1\OneDrive\Plocha\projekt chat\ChatAplikace\ChatAplikace.Database\obj\Debug\net10.0\ChatAplikace.Database.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User1\OneDrive\Plocha\projekt chat\ChatAplikace\ChatAplikace.Database\obj\Debug\net10.0\ChatAplikace.Database.AssemblyInfoInputs.cache
+C:\Users\User1\OneDrive\Plocha\projekt chat\ChatAplikace\ChatAplikace.Database\obj\Debug\net10.0\ChatAplikace.Database.AssemblyInfo.cs
+C:\Users\User1\OneDrive\Plocha\projekt chat\ChatAplikace\ChatAplikace.Database\obj\Debug\net10.0\ChatAplikace.Database.csproj.CoreCompileInputs.cache
+C:\Users\User1\OneDrive\Plocha\projekt chat\ChatAplikace\ChatAplikace.Database\obj\Debug\net10.0\ChatAplikace.Database.sourcelink.json
+C:\Users\User1\OneDrive\Plocha\projekt chat\ChatAplikace\ChatAplikace.Database\obj\Debug\net10.0\ChatAplikace.Database.dll
+C:\Users\User1\OneDrive\Plocha\projekt chat\ChatAplikace\ChatAplikace.Database\obj\Debug\net10.0\refint\ChatAplikace.Database.dll
+C:\Users\User1\OneDrive\Plocha\projekt chat\ChatAplikace\ChatAplikace.Database\obj\Debug\net10.0\ChatAplikace.Database.pdb
+C:\Users\User1\OneDrive\Plocha\projekt chat\ChatAplikace\ChatAplikace.Database\obj\Debug\net10.0\ChatAplikace.Database.genruntimeconfig.cache
+C:\Users\User1\OneDrive\Plocha\projekt chat\ChatAplikace\ChatAplikace.Database\obj\Debug\net10.0\ref\ChatAplikace.Database.dll
