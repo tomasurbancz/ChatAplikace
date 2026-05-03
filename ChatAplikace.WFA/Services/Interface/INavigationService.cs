@@ -2,5 +2,5 @@
 
 public interface INavigationService
 {
-    void SetControl(Control control);
+    void SetControl(UserControl control);
 }

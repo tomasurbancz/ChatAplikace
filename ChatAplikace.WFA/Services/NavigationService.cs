@@ -12,7 +12,7 @@ public class NavigationService : INavigationService
         _mainForm = mainForm;
     }
     
-    public void SetControl(Control control)
+    public void SetControl(UserControl control)
     {
         _mainForm.Controls.Clear();
         control.Dock = DockStyle.Fill;
