@@ -43,7 +43,7 @@ Desktopová aplikace, která umožňuje komunikaci mezi uživateli pomocí zprá
 
 ## Ukázky
 
-<img width="1604" height="478" alt="image" src="https://github.com/user-attachments/assets/c4d82b89-cafb-4487-b025-3b7d930a9a36" />
+<img width="1773" height="532" alt="image" src="https://github.com/user-attachments/assets/739ffd75-45d6-44d4-8043-056a2e27f391" />
 
 ---
 
