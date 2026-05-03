@@ -14,10 +14,10 @@ public class RoomService : IRoomService
         _databaseContext = databaseContext;
     }
     
-    public async Task CreateRoom(Guid userId, string roomName)
+    public async Task<Guid> CreateRoom(Guid userId, string roomName)
     {
         var user = await _databaseContext.Users.FindAsync(userId);
-        if (user == null) return;
+        if (user == null) return Guid.Empty;
         
         var chatRoom = new ChatRoomEntity()
         {
@@ -26,6 +26,7 @@ public class RoomService : IRoomService
         };
         await _databaseContext.ChatRooms.AddAsync(chatRoom);
         await _databaseContext.SaveChangesAsync();
+        return chatRoom.Id;
     }
 
     public async Task JoinRoom(Guid userId, Guid roomId)
@@ -62,6 +63,7 @@ public class RoomService : IRoomService
             ChatRoomId = roomId
         };
         chatRoom.Messages.Add(messageEntity);
+        chatRoom.UpdatedAt = DateTime.Now;
         await _databaseContext.Messages.AddAsync(messageEntity);
         await _databaseContext.SaveChangesAsync();
         var messageModel = new MessageModel()

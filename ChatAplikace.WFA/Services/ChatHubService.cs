@@ -42,7 +42,12 @@ public class ChatHubService : IChatHubService
     {
         Connection.On<MessageModel>("ReceiveMessage", callback);
     }
-    
+
+    public async Task ListenToRoomAdded(Action callback)
+    {
+        Connection.On("AddedToChat", callback);
+    }
+
     public async Task<bool> Login(string username, string password)
     {
         return await Connection.InvokeAsync<bool>("Login", username, password);   
@@ -76,5 +81,20 @@ public class ChatHubService : IChatHubService
     public async Task<Guid> GetUserId()
     {
         return await Connection.InvokeAsync<Guid>("GetUserId");
+    }
+
+    public async Task<Guid> GetUserIdByName(string username)
+    {
+        return await Connection.InvokeAsync<Guid>("GetUserIdByName", username);
+    }
+
+    public async Task<Guid> CreateRoom(string name)
+    {
+        return await Connection.InvokeAsync<Guid>("CreateRoom", name);
+    }
+
+    public async Task AddUserToRoom(Guid id, Guid roomId)
+    {
+        await Connection.InvokeAsync("AddUserToRoom", id, roomId);
     }
 }

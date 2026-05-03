@@ -9,6 +9,7 @@ public interface IChatHubService
     Task JoinToRoom(Guid id);
     Task SendToRoom(Guid id, string message);
     Task ListenToMessages(Action<MessageModel> callback);
+    Task ListenToRoomAdded(Action callback);
     Task<bool> Login(string username, string password);
     Task<bool> Register(string username, string password);
     Task SendMessage(string message);
@@ -16,4 +17,7 @@ public interface IChatHubService
     Task<string> GetChatRoomName(Guid id);
     Task<List<ChatRoomModel>> GetChatRooms();
     Task<Guid> GetUserId();
+    Task<Guid> GetUserIdByName(string username);
+    Task<Guid> CreateRoom(string name);
+    Task AddUserToRoom(Guid id, Guid roomId);
 }

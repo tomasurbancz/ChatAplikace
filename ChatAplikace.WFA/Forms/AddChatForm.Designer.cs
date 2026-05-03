@@ -33,39 +33,42 @@ partial class AddChatForm
     {
         usernameBox = new System.Windows.Forms.TextBox();
         addButton = new System.Windows.Forms.Button();
-        notFoundLabel = new System.Windows.Forms.Label();
+        wrongDataLabel = new System.Windows.Forms.Label();
         addLabel = new System.Windows.Forms.Label();
         chatNameBox = new System.Windows.Forms.TextBox();
         SuspendLayout();
         // 
         // usernameBox
         // 
+        usernameBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
         usernameBox.Location = new System.Drawing.Point(12, 42);
         usernameBox.Name = "usernameBox";
         usernameBox.PlaceholderText = "Username";
         usernameBox.Size = new System.Drawing.Size(188, 23);
         usernameBox.TabIndex = 0;
+        usernameBox.TextChanged += usernameBox_TextChanged;
         // 
         // addButton
         // 
-        addButton.Location = new System.Drawing.Point(12, 125);
+        addButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+        addButton.Location = new System.Drawing.Point(12, 133);
         addButton.Name = "addButton";
-        addButton.Size = new System.Drawing.Size(188, 30);
+        addButton.Size = new System.Drawing.Size(188, 34);
         addButton.TabIndex = 1;
         addButton.Text = "Add";
         addButton.UseVisualStyleBackColor = true;
         addButton.Click += addButton_Click;
         // 
-        // notFoundLabel
+        // wrongDataLabel
         // 
-        notFoundLabel.ForeColor = System.Drawing.Color.IndianRed;
-        notFoundLabel.Location = new System.Drawing.Point(100, 99);
-        notFoundLabel.Name = "notFoundLabel";
-        notFoundLabel.Size = new System.Drawing.Size(100, 23);
-        notFoundLabel.TabIndex = 2;
-        notFoundLabel.Text = "Wrong data";
-        notFoundLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-        notFoundLabel.Visible = false;
+        wrongDataLabel.ForeColor = System.Drawing.Color.IndianRed;
+        wrongDataLabel.Location = new System.Drawing.Point(100, 105);
+        wrongDataLabel.Name = "wrongDataLabel";
+        wrongDataLabel.Size = new System.Drawing.Size(102, 23);
+        wrongDataLabel.TabIndex = 2;
+        wrongDataLabel.Text = "Wrong data";
+        wrongDataLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+        wrongDataLabel.Visible = false;
         // 
         // addLabel
         // 
@@ -79,11 +82,13 @@ partial class AddChatForm
         // 
         // chatNameBox
         // 
+        chatNameBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
         chatNameBox.Location = new System.Drawing.Point(12, 71);
         chatNameBox.Name = "chatNameBox";
         chatNameBox.PlaceholderText = "Chat name";
         chatNameBox.Size = new System.Drawing.Size(188, 23);
         chatNameBox.TabIndex = 4;
+        chatNameBox.TextChanged += chatNameBox_TextChanged;
         // 
         // AddChatForm
         // 
@@ -92,11 +97,12 @@ partial class AddChatForm
         ClientSize = new System.Drawing.Size(212, 179);
         Controls.Add(chatNameBox);
         Controls.Add(addLabel);
-        Controls.Add(notFoundLabel);
+        Controls.Add(wrongDataLabel);
         Controls.Add(addButton);
         Controls.Add(usernameBox);
         FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
         MaximizeBox = false;
+        MinimumSize = new System.Drawing.Size(228, 218);
         MinimizeBox = false;
         Text = "AddChatForm";
         ResumeLayout(false);
@@ -108,7 +114,7 @@ partial class AddChatForm
     private System.Windows.Forms.Label addLabel;
 
     private System.Windows.Forms.Button addButton;
-    private System.Windows.Forms.Label notFoundLabel;
+    private System.Windows.Forms.Label wrongDataLabel;
 
     private System.Windows.Forms.TextBox usernameBox;
 

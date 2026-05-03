@@ -2,6 +2,7 @@ using ChatAplikace.Backend.Hub;
 using ChatAplikace.Backend.Manager;
 using ChatAplikace.Backend.Services;
 using ChatAplikace.Database;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

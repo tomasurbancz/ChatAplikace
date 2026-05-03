@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using System.Security.Claims;
 using ChatAplikace.Backend.Manager;
 using ChatAplikace.Backend.Services;
 using ChatAplikace.Database.Entity;
@@ -53,12 +54,17 @@ public class ChatHub : Microsoft.AspNetCore.SignalR.Hub
         _connections.Remove(connection);
     }
 
-    public async Task CreateRoom(string name)
+    public async Task<Guid> CreateRoom(string name)
     {
         if (_connections.TryGetUser(Context.ConnectionId, out var userId))
         {
-            await _roomService.CreateRoom(userId, name);
+            var id = await _roomService.CreateRoom(userId, name);
+            await Groups.AddToGroupAsync(Context.ConnectionId, id.ToString());
+            await Clients.Group(id.ToString()).SendAsync("AddedToChat");
+            return id;
         }
+
+        return Guid.Empty;
     }
     
     public async Task JoinAllRooms()
@@ -108,7 +114,16 @@ public class ChatHub : Microsoft.AspNetCore.SignalR.Hub
             await _roomService.JoinRoom(userId, roomId);
             await Groups.AddToGroupAsync(Context.ConnectionId, roomId.ToString());
         }
-        //await Clients.Group(roomId).SendAsync("SystemMessage", $"{Context.ConnectionId} joined {roomId}");
+    }
+
+    public async Task AddUserToRoom(Guid userId, Guid roomId)
+    {
+        await _roomService.JoinRoom(userId, roomId);
+        if (_connections.TryGetConnection(userId, out var connectionId))
+        {
+            await Groups.AddToGroupAsync(connectionId, roomId.ToString());
+            await Clients.Group(roomId.ToString()).SendAsync("AddedToChat");
+        }
     }
 
     public async Task<string> GetChatRoomName(Guid id)
@@ -134,6 +149,11 @@ public class ChatHub : Microsoft.AspNetCore.SignalR.Hub
             return userId;
         }
         return Guid.Empty;
+    }
+
+    public async Task<Guid> GetUserIdByName(string username)
+    {
+        return await _userService.GetUserId(username);
     }
 }
 

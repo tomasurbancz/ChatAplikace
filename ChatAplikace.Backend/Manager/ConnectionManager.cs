@@ -12,6 +12,20 @@ public class ConnectionManager
     public bool TryGetUser(string connectionId, out Guid userId)
         => _connections.TryGetValue(connectionId, out userId);
 
+    public bool TryGetConnection(Guid userId, out string connectionId) {
+        foreach (var pair in _connections)
+        {
+            if (pair.Value == userId)
+            {
+                connectionId = pair.Key;
+                return true;
+            }
+        }
+
+        connectionId = null;
+        return false;
+    }
+    
     public void Remove(string connectionId)
         => _connections.TryRemove(connectionId, out _);
 }

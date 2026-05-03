@@ -46,4 +46,13 @@ public class UserService : IUserService
         await _databaseContext.SaveChangesAsync();
         return true;
     }
+
+    public async Task<Guid> GetUserId(string username)
+    {
+        if (string.IsNullOrWhiteSpace(username)) return Guid.Empty;
+        var exists = await _databaseContext.Users.AnyAsync(u => u.Username == username);
+        if (!exists) return Guid.Empty;
+        var entity =  await _databaseContext.Users.Where(u => u.Username == username).FirstAsync();
+        return entity.Id;
+    }
 }
