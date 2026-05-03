@@ -11,7 +11,7 @@ public class ChatHubService : IChatHubService
     public ChatHubService()
     {
         Connection = new HubConnectionBuilder()
-            .WithUrl("http://localhost:5099/chatHub")
+            .WithUrl("http://obscure-halibut-rqqjw67xp7w257w9-5099.app.github.dev/chatHub")
             .WithAutomaticReconnect()
             .Build();
     }
