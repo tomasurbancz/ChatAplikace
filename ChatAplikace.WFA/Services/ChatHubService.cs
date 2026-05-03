@@ -72,4 +72,9 @@ public class ChatHubService : IChatHubService
     {
         return await Connection.InvokeAsync<List<ChatRoomModel>>("GetChatRooms");
     }
+
+    public async Task<Guid> GetUserId()
+    {
+        return await Connection.InvokeAsync<Guid>("GetUserId");
+    }
 }

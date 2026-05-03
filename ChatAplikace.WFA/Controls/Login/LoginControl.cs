@@ -26,6 +26,9 @@ public partial class LoginControl : UserControl
     private async void loginButton_Click(object sender, EventArgs e)
     {
         bool success = await _chatHubService.Login(usernameBox.Text, passwordBox.Text);
-        Console.WriteLine("SUCCESS: " + success);
+        if (success)
+        {
+            _navigationService.SetControl(new MainControl(_navigationService, _chatHubService));
+        }
     }
 }

@@ -123,8 +123,17 @@ public class ChatHub : Microsoft.AspNetCore.SignalR.Hub
 
     public override async Task OnDisconnectedAsync(Exception? exception)
     {
-        Logout(Context.ConnectionId);
+        await Logout(Context.ConnectionId);
         await base.OnDisconnectedAsync(exception);
+    }
+
+    public async Task<Guid> GetUserId()
+    {
+        if (_connections.TryGetUser(Context.ConnectionId, out var userId))
+        {
+            return userId;
+        }
+        return Guid.Empty;
     }
 }
 

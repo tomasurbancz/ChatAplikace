@@ -21,6 +21,9 @@
       <Compile Update="Controls\Register\RegisterControl.cs">
         <SubType>UserControl</SubType>
       </Compile>
+      <Compile Update="Forms\AddChatForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
     <ItemGroup>

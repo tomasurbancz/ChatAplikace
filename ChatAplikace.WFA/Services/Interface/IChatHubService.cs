@@ -15,4 +15,5 @@ public interface IChatHubService
     Task<List<MessageModel>> GetMessages(Guid id);
     Task<string> GetChatRoomName(Guid id);
     Task<List<ChatRoomModel>> GetChatRooms();
+    Task<Guid> GetUserId();
 }
