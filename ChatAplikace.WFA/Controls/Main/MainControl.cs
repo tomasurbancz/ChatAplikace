@@ -226,5 +226,6 @@ public partial class MainControl : UserControl
         if (string.IsNullOrWhiteSpace(messageBox.Text.Trim())) return;
         if (_roomId.Equals(Guid.Empty)) return;
         await _chatHubService.SendToRoom(_roomId, messageBox.Text.Trim());
+        messageBox.Text = "";
     }
 }
