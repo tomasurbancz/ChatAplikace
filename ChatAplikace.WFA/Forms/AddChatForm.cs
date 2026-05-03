@@ -10,12 +10,37 @@ public partial class AddChatForm : Form
     {
         InitializeComponent();
         _chatHubService = chatHubService;
-        BackColor = Color.FromArgb(245, 247, 251);
-        addLabel.ForeColor = Color.FromArgb(36, 42, 58);
-        addButton.BackColor = Color.FromArgb(66, 133, 244);
+        ApplyTheme();
+    }
+
+    private void ApplyTheme()
+    {
+        Font = new Font("Segoe UI", 10F, FontStyle.Regular);
+        BackColor = Color.FromArgb(32, 44, 51);
+
+        addLabel.ForeColor = Color.FromArgb(233, 237, 240);
+        addLabel.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+
+        usernameBox.BackColor = Color.FromArgb(240, 242, 245);
+        usernameBox.BorderStyle = BorderStyle.FixedSingle;
+        usernameBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
+        usernameBox.ForeColor = Color.FromArgb(17, 27, 33);
+
+        chatNameBox.BackColor = Color.FromArgb(240, 242, 245);
+        chatNameBox.BorderStyle = BorderStyle.FixedSingle;
+        chatNameBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
+        chatNameBox.ForeColor = Color.FromArgb(17, 27, 33);
+
+        addButton.BackColor = Color.FromArgb(18, 140, 126);
         addButton.ForeColor = Color.White;
         addButton.FlatStyle = FlatStyle.Flat;
         addButton.FlatAppearance.BorderSize = 0;
+        addButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(15, 120, 109);
+        addButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(12, 101, 92);
+        addButton.Cursor = Cursors.Hand;
+        addButton.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+
+        wrongDataLabel.ForeColor = Color.FromArgb(255, 120, 117);
     }
 
     private async void addButton_Click(object sender, EventArgs e)

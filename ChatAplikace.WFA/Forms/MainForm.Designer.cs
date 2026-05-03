@@ -38,7 +38,9 @@ partial class MainForm
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(800, 450);
-        Text = "MainForm";
+        MinimumSize = new System.Drawing.Size(900, 540);
+        StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+        Text = "ChatAplikace";
         Load += MainForm_Load;
         ResumeLayout(false);
     }

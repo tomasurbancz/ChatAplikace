@@ -8,7 +8,7 @@ public partial class MainForm : Form
     public MainForm()
     {
         InitializeComponent();
-        
+        BackColor = Color.FromArgb(244, 247, 252);
     }
 
     private async void MainForm_Load(object sender, EventArgs e)
