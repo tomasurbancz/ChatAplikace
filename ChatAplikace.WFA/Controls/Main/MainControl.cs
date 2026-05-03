@@ -53,7 +53,7 @@ public partial class MainControl : UserControl
     {
         ResizeDynamicControls();
 
-        await _chatHubService.ListenToMessages(async void (message) =>
+        await _chatHubService.ListenToMessages(async (message) =>
         {
             if (InvokeRequired)
             {
@@ -69,7 +69,7 @@ public partial class MainControl : UserControl
                 await LoadMessages(_roomId);
             }
         });
-        await _chatHubService.ListenToRoomAdded(async void () =>
+        await _chatHubService.ListenToRoomAdded(async () =>
         {
             Console.WriteLine("ROOM");
             if (InvokeRequired)
@@ -103,23 +103,42 @@ public partial class MainControl : UserControl
         Guid userId = await _chatHubService.GetUserId();
         messages.ForEach(message =>
         {
-            Label label = new Label();
-            label.Text = message.Message;
-            label.MaximumSize = new Size(Math.Max(220, messagesLayout.ClientSize.Width - 32), 0);
-            label.AutoSize = true;
-            label.Margin = new Padding(3, 3, 3, 8);
-            label.Padding = new Padding(8, 6, 8, 6);
-            label.BackColor = Color.FromArgb(240, 244, 252);
-            label.ForeColor = Color.FromArgb(36, 42, 58);
-            label.BorderStyle = BorderStyle.FixedSingle;
-            label.TextAlign = ContentAlignment.MiddleLeft;
-            if (message.UserId.Equals(userId))
+            bool isCurrentUser = message.UserId.Equals(userId);
+
+            int maxBubbleWidth = Math.Max(220, (int)(messagesLayout.ClientSize.Width * 0.72f));
+            Label label = new Label
             {
-                label.TextAlign = ContentAlignment.MiddleRight;
-                label.BackColor = Color.FromArgb(66, 133, 244);
-                label.ForeColor = Color.White;
-            }
-            messagesLayout.Controls.Add(label);
+                Text = message.Message,
+                AutoSize = false,
+                Margin = new Padding(0),
+                Padding = new Padding(8, 6, 8, 6),
+                BackColor = isCurrentUser ? Color.FromArgb(66, 133, 244) : Color.FromArgb(240, 244, 252),
+                ForeColor = isCurrentUser ? Color.White : Color.FromArgb(36, 42, 58),
+                BorderStyle = BorderStyle.FixedSingle,
+                TextAlign = ContentAlignment.MiddleLeft,
+                MaximumSize = new Size(maxBubbleWidth, 0)
+            };
+
+            Size preferredSize = TextRenderer.MeasureText(
+                message.Message,
+                label.Font,
+                new Size(maxBubbleWidth - label.Padding.Horizontal, int.MaxValue),
+                TextFormatFlags.WordBreak);
+            label.Size = new Size(
+                Math.Min(maxBubbleWidth, preferredSize.Width + label.Padding.Horizontal + 6),
+                preferredSize.Height + label.Padding.Vertical + 6);
+
+            Panel rowPanel = new Panel
+            {
+                Width = Math.Max(100, messagesLayout.ClientSize.Width - 12),
+                Height = label.Height + 2,
+                Margin = new Padding(0, 0, 0, 8),
+                Tag = isCurrentUser
+            };
+
+            rowPanel.Controls.Add(label);
+            AlignMessageLabel(rowPanel, label, isCurrentUser);
+            messagesLayout.Controls.Add(rowPanel);
         });
     }
     
@@ -174,11 +193,32 @@ public partial class MainControl : UserControl
 
         foreach (Control control in messagesLayout.Controls)
         {
-            if (control is Label label)
+            if (control is Panel rowPanel && rowPanel.Controls.Count > 0 && rowPanel.Controls[0] is Label label)
             {
-                label.MaximumSize = new Size(Math.Max(220, messagesLayout.ClientSize.Width - 32), 0);
+                bool isCurrentUser = rowPanel.Tag is bool isOwnMessage && isOwnMessage;
+                rowPanel.Width = Math.Max(100, messagesLayout.ClientSize.Width - 12);
+                int maxBubbleWidth = Math.Max(220, (int)(messagesLayout.ClientSize.Width * 0.72f));
+                label.MaximumSize = new Size(maxBubbleWidth, 0);
+                Size preferredSize = TextRenderer.MeasureText(
+                    label.Text,
+                    label.Font,
+                    new Size(maxBubbleWidth - label.Padding.Horizontal, int.MaxValue),
+                    TextFormatFlags.WordBreak);
+                label.Size = new Size(
+                    Math.Min(maxBubbleWidth, preferredSize.Width + label.Padding.Horizontal + 6),
+                    preferredSize.Height + label.Padding.Vertical + 6);
+                rowPanel.Height = label.Height + 2;
+                AlignMessageLabel(rowPanel, label, isCurrentUser);
             }
         }
+    }
+
+    private static void AlignMessageLabel(Panel rowPanel, Label label, bool alignRight)
+    {
+        label.Top = 0;
+        label.Left = alignRight
+            ? Math.Max(0, rowPanel.ClientSize.Width - label.Width)
+            : 0;
     }
 
     private async void sendButton_Click(object sender, EventArgs e)

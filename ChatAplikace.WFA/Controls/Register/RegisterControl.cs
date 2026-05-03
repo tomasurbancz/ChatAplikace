@@ -14,7 +14,14 @@ public partial class RegisterControl : UserControl
         InitializeComponent();
         _navigationService = navigationService;
         _chatHubService = chatHubService; 
-        BackColor = Color.Green;
+        BackColor = Color.FromArgb(245, 247, 251);
+        registerPanel.BackColor = Color.White;
+        registerButton.BackColor = Color.FromArgb(66, 133, 244);
+        registerButton.ForeColor = Color.White;
+        registerButton.FlatStyle = FlatStyle.Flat;
+        registerButton.FlatAppearance.BorderSize = 0;
+        label1.ForeColor = Color.FromArgb(66, 133, 244);
+        label1.Cursor = Cursors.Hand;
     }
 
     private void label1_Click(object sender, EventArgs e)

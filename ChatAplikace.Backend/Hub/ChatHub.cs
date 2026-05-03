@@ -60,7 +60,6 @@ public class ChatHub : Microsoft.AspNetCore.SignalR.Hub
         {
             var id = await _roomService.CreateRoom(userId, name);
             await Groups.AddToGroupAsync(Context.ConnectionId, id.ToString());
-            await Clients.Group(id.ToString()).SendAsync("AddedToChat");
             return id;
         }
 
@@ -72,10 +71,10 @@ public class ChatHub : Microsoft.AspNetCore.SignalR.Hub
         if (_connections.TryGetUser(Context.ConnectionId, out var userId))
         {
             var rooms = await _userService.GetRooms(userId);
-            rooms.ForEach(async void (room) =>
+            foreach (var room in rooms)
             {
                 await Groups.AddToGroupAsync(Context.ConnectionId, room.Id.ToString());
-            });
+            }
         }
        
     }
