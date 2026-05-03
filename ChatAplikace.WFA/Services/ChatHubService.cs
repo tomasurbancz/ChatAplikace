@@ -48,6 +48,16 @@ public class ChatHubService : IChatHubService
         Connection.On("AddedToChat", callback);
     }
 
+    public async Task ListenToStartTyping(Action<Guid, Guid> callback)
+    {
+        Connection.On("StartedTyping", callback);
+    }
+
+    public async Task ListenToEndTyping(Action<Guid> callback)
+    {
+        Connection.On("EndedTyping", callback);
+    }
+    
     public async Task<bool> Login(string username, string password)
     {
         return await Connection.InvokeAsync<bool>("Login", username, password);   
@@ -96,5 +106,15 @@ public class ChatHubService : IChatHubService
     public async Task AddUserToRoom(Guid id, Guid roomId)
     {
         await Connection.InvokeAsync("AddUserToRoom", id, roomId);
+    }
+
+    public async Task StartTyping(Guid roomId)
+    {
+        await Connection.InvokeAsync("StartTyping", roomId);
+    }
+
+    public async Task EndTyping(Guid roomId)
+    {
+        await Connection.InvokeAsync("EndTyping", roomId);
     }
 }

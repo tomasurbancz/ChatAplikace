@@ -20,4 +20,8 @@ public interface IChatHubService
     Task<Guid> GetUserIdByName(string username);
     Task<Guid> CreateRoom(string name);
     Task AddUserToRoom(Guid id, Guid roomId);
+    Task StartTyping(Guid roomId);
+    Task EndTyping(Guid roomId);
+    Task ListenToStartTyping(Action<Guid, Guid> callback);
+    Task ListenToEndTyping(Action<Guid> callback);
 }

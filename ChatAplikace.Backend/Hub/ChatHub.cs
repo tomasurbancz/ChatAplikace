@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using System.Security.Claims;
+using System.Text.RegularExpressions;
 using ChatAplikace.Backend.Manager;
 using ChatAplikace.Backend.Services;
 using ChatAplikace.Database.Entity;
@@ -30,6 +31,7 @@ public class ChatHub : Microsoft.AspNetCore.SignalR.Hub
         {
             var messageEntity = await _roomService.SendMessage(userId, roomId, message);
             if (messageEntity == null) return;
+            await Clients.Group(roomId.ToString()).SendAsync("EndedTyping", roomId);
             await Clients.Group(roomId.ToString()).SendAsync("ReceiveMessage", messageEntity);
         }
     }
@@ -113,6 +115,19 @@ public class ChatHub : Microsoft.AspNetCore.SignalR.Hub
             await _roomService.JoinRoom(userId, roomId);
             await Groups.AddToGroupAsync(Context.ConnectionId, roomId.ToString());
         }
+    }
+
+    public async Task StartTyping(Guid roomId)
+    {
+        if (_connections.TryGetUser(Context.ConnectionId, out var userId))
+        {
+            await Clients.Group(roomId.ToString()).SendAsync("StartedTyping", roomId, userId);
+        }
+    }
+
+    public async Task EndTyping(Guid roomId)
+    {
+        await Clients.Group(roomId.ToString()).SendAsync("EndedTyping", roomId);
     }
 
     public async Task AddUserToRoom(Guid userId, Guid roomId)

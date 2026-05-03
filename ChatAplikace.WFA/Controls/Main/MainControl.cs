@@ -2,6 +2,7 @@
 using ChatAplikace.WFA.Forms;
 using ChatAplikace.WFA.Services;
 using ChatAplikace.WFA.Services.Interface;
+using Timer = System.Threading.Timer;
 
 namespace ChatAplikace.WFA.Controls.Login;
 
@@ -11,6 +12,10 @@ public partial class MainControl : UserControl
     private readonly INavigationService _navigationService;
     private readonly IChatHubService _chatHubService;
     private Guid _roomId = Guid.Empty;
+    private bool _currentlyTyping = false;
+    private List<Guid> _typingChats = new ();
+    private Dictionary<Guid, Label> _animationTyping = new();
+    private bool _blockLoading = false;
     
     public MainControl(INavigationService navigationService, IChatHubService chatHubService)
     {
@@ -94,7 +99,39 @@ public partial class MainControl : UserControl
         });
         await _chatHubService.ListenToRoomAdded(async () =>
         {
-            Console.WriteLine("ROOM");
+            if (InvokeRequired)
+            {
+                BeginInvoke(new Func<Task>(async () =>
+                {
+                    await LoadChats();
+                }));
+            }
+            else
+            {
+                await LoadChats();
+            }
+        });
+        await _chatHubService.ListenToStartTyping(async (roomId, userId) =>
+        {
+            Guid myId = await _chatHubService.GetUserId();
+            if (userId.Equals(myId)) return;
+            _typingChats.Add(roomId);
+            if (InvokeRequired)
+            {
+                BeginInvoke(new Func<Task>(async () =>
+                {
+                    await LoadChats();
+                }));
+            }
+            else
+            {
+                await LoadChats();
+            }
+        });
+        await _chatHubService.ListenToEndTyping(async (roomId) =>
+        {
+            if (_typingChats.Contains(roomId)) _typingChats.Remove(roomId);
+            if (_animationTyping.ContainsKey(roomId)) _animationTyping.Remove(_roomId);
             if (InvokeRequired)
             {
                 BeginInvoke(new Func<Task>(async () =>
@@ -108,6 +145,20 @@ public partial class MainControl : UserControl
             }
         });
         await LoadChats();
+        System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+        timer.Interval = 200;
+        List<string> typingAnimations = ["Typing", "Typing.", "Typing..", "Typing..."];
+        timer.Tick += (_, __) =>
+        {
+            foreach (var keyValuePair in new Dictionary<Guid, Label>(_animationTyping))
+            {
+                int index = typingAnimations.FindIndex(x => x.Equals(keyValuePair.Value.Text));
+                if (index == 3) index = 0;
+                else index++;
+                keyValuePair.Value.Text = typingAnimations[index];
+            }
+        };
+        timer.Start();
     }
 
     private async Task OpenChat(Guid id)
@@ -128,7 +179,7 @@ public partial class MainControl : UserControl
         {
             bool isCurrentUser = message.UserId.Equals(userId);
             int maxBubbleWidth = Math.Max(220, (int)(messagesLayout.ClientSize.Width * 0.72f));
-            Panel bubblePanel = CreateMessageBubble(message.Message, isCurrentUser, maxBubbleWidth);
+            Panel bubblePanel = CreateMessageBubble(message.Message, message.CreatedAt, isCurrentUser, maxBubbleWidth);
 
             Panel rowPanel = new Panel
             {
@@ -150,12 +201,15 @@ public partial class MainControl : UserControl
     
     private async Task LoadChats()
     {
+        if (_blockLoading) return;
+        _blockLoading = true;
         chatsLayout.Controls.Clear();
         List<ChatRoomModel> models = await _chatHubService.GetChatRooms();
         models = models.OrderByDescending(model => model.UpdatedAt).ToList();
-        models.ForEach(model =>
+        models.ForEach(async model =>
         {
-            string lastMessage = model.Messages
+            List<MessageModel> messages = await _chatHubService.GetMessages(model.Id);
+            string lastMessage = messages
                 .OrderByDescending(m => m.UpdatedAt)
                 .Select(m => m.Message)
                 .FirstOrDefault() ?? "No messages yet";
@@ -189,6 +243,12 @@ public partial class MainControl : UserControl
                 TextAlign = ContentAlignment.MiddleLeft,
                 AutoEllipsis = true
             };
+            
+            if (_typingChats.Contains(model.Id) && !_animationTyping.ContainsKey(model.Id))
+            {
+                _animationTyping.Add(model.Id, subtitleLabel);
+                subtitleLabel.Text = "Typing";
+            }
 
             EventHandler openChatHandler = async (_, __) =>
             {
@@ -221,6 +281,7 @@ public partial class MainControl : UserControl
             new AddChatForm(_chatHubService).Show();
         };
         chatsLayout.Controls.Add(add);
+        _blockLoading = false;
     }
 
     private void ResizeDynamicControls()
@@ -255,7 +316,7 @@ public partial class MainControl : UserControl
         EnsureMessageListCanScrollToBottom();
     }
 
-    private Panel CreateMessageBubble(string messageText, bool isCurrentUser, int maxBubbleWidth)
+    private Panel CreateMessageBubble(string messageText, DateTime time, bool isCurrentUser, int maxBubbleWidth)
     {
         Panel bubblePanel = new Panel
         {
@@ -278,7 +339,7 @@ public partial class MainControl : UserControl
         Label timeLabel = new Label
         {
             Name = "MessageTimeLabel",
-            Text = "{CURRENT_TIME}",
+            Text = time.Hour + ":" + time.Minute,
             AutoSize = false,
             ForeColor = Color.FromArgb(102, 119, 128),
             Font = new Font("Segoe UI", 7.5F, FontStyle.Regular),
@@ -371,6 +432,21 @@ public partial class MainControl : UserControl
         if (string.IsNullOrWhiteSpace(messageBox.Text.Trim())) return;
         if (_roomId.Equals(Guid.Empty)) return;
         await _chatHubService.SendToRoom(_roomId, messageBox.Text.Trim());
+        _currentlyTyping = false;
         messageBox.Text = "";
+    }
+
+    private async void messageBox_TextChanged(object sender, EventArgs e)
+    {
+        if (!string.IsNullOrWhiteSpace(messageBox.Text))
+        {
+            if (!_currentlyTyping) await _chatHubService.StartTyping(_roomId);
+            _currentlyTyping = true;
+        }
+        else
+        {
+            if (_currentlyTyping) await _chatHubService.EndTyping(_roomId);
+            _currentlyTyping = false;
+        }
     }
 }

@@ -132,6 +132,7 @@ partial class MainControl
         messageBox.PlaceholderText = "Message";
         messageBox.Size = new System.Drawing.Size(316, 23);
         messageBox.TabIndex = 1;
+        messageBox.TextChanged += messageBox_TextChanged;
         // 
         // messagesLayout
         // 
