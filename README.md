@@ -10,16 +10,7 @@ Desktopová aplikace, která umožňuje komunikaci mezi uživateli pomocí zprá
 - Real-time posílání zpráv
 - Automatická synchronizace chatů a zpráv mezi klienty
 - Ukládání zpráv a chatů do databáze
-
----
-
-## Použité technologie
-
-- C# (.NET / .NET Core)
-- SignalR
-- Entity Framework Core
-- SQLite
-- WinForms
+- Indikátor typing u chatu
 
 ---
 
@@ -61,8 +52,17 @@ Tento projekt ukazuje:
 ## Možná budoucí vylepšení
 
 - online status uživatelů
-- indikátor „typing…“
 - lepší UI/UX design
+
+---
+
+## Použité technologie
+
+- C# (.NET / .NET Core)
+- SignalR
+- Entity Framework Core
+- SQLite
+- WinForms
 
 ---
 
